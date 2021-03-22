@@ -1,0 +1,111 @@
+# Mandatory Exercise One
+
+def password_validator (password):
+    sum_of_uppercase = 0
+    sum_of_digit = 0
+    sum_of_cdigit = 0
+    if len(password) >= 8:
+        for character in password:
+            if (character.isupper()):
+                sum_of_uppercase += 1
+            if (character.isdigit()): 
+                sum_of_digit+=1 
+        for i in range (len(password) - 1): 
+            if (password[i].isdigit() and password[i+1].isdigit()):
+               sum_of_cdigit+=1
+
+    if sum_of_uppercase > 0 and sum_of_digit > 1 and sum_of_cdigit == 0:
+        print ('Welcome!')   
+    else:
+        print ('Invalid Password!') 
+        
+def main():
+    password = input("Enter Your Password Here: ")
+    password_validator(password)
+
+main()
+
+# Mandatory Exercise Two
+#A
+def word_separator(word):
+    separated_word = word.split()
+    return separated_word
+
+
+def main():
+    word = input("Enter a String: ")
+    separated_word = word_separator(word)
+    print (separated_word)
+main()
+
+# Input: I can go, you can’t go
+# Output: ['I', 'can', 'go,', 'you', 'can’t', 'go']
+
+#B 
+
+def word_frequency_counter(word):
+    lower_word = word.lower()
+    separated_word = lower_word.split()
+    unique_words = set(separated_word)
+    word_freq = []
+    for w in unique_words:
+        word_freq.append(separated_word.count(w))
+    distinct_strings = list(zip((unique_words), (word_freq)))
+    return distinct_strings
+
+def main():
+    word = input("Enter a String: ")
+    distinct_strings = word_frequency_counter(word)
+    print (distinct_strings)
+main()
+
+# Input: the cat the dog and the mouse
+# Output: [('dog', 1), ('the', 3), ('and', 1), ('mouse', 1), ('cat', 1)]
+
+#C
+
+def word_frequency_counter(word):
+    lower_word = word.lower()
+    separated_word = lower_word.split()
+    unique_words = set(separated_word)
+    word_freq = []
+    for w in unique_words:
+        word_freq.append(separated_word.count(w))
+    distinct_strings = list(zip((unique_words), (word_freq)))
+    return distinct_strings
+
+def sorter(word):
+    distinct_strings = word_frequency_counter(word)
+    sorted_string = sorted(distinct_strings, key = lambda t: t[0])
+    return sorted_string
+    
+# Extra Exercise Two
+def password_validator (password):
+    sum_of_uppercase = 0
+    sum_of_digit = 0
+    sum_of_cdigit = 0
+    
+    for character in password:
+            if (character.isupper()):
+                sum_of_uppercase += 1
+            if (character.isdigit()): 
+                sum_of_digit+=1 
+    for i in range (len(password) - 1): 
+            if (password[i].isdigit() and password[i+1].isdigit()):
+               sum_of_cdigit+=1
+    if len(password) < 8:
+        print ('Invalid Password! Must have a minimum of 8 characters.') 
+    elif sum_of_uppercase == 0:
+        print ('Invalid Password! Must contain at least one upper-case letter.')   
+    elif sum_of_digit <= 1:
+        print ('Invalid Password! Must contain at least two digits.')   
+    elif sum_of_cdigit > 0:
+        print ('Invalid Password! Can’t contain two or more consecutive digits')   
+    else:
+        print ('Welcome!') 
+        
+def main():
+    password = input("Enter Your Password Here: ")
+    password_validator(password)
+
+main()
