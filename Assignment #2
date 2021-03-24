@@ -1,0 +1,25 @@
+# Mandatory Exercise 1
+
+def letter_freq_counter(string):
+    string_lower = string.lower()
+    unique_letters = set(string_lower)
+    letter_freq = {}
+    for l in unique_letters:
+        if l.isalpha():
+            letter_freq[l] = string_lower.count(l)
+    return letter_freq
+
+def sorter(string):
+    letter_freq = letter_freq_counter(string)
+    sorted_output = sorted(letter_freq.items(), 
+                           reverse=True, key = lambda l: (l[1], l[0]))
+    sorted_output = dict(sorted_output)
+    return sorted_output
+    
+def main():
+    string = input("Enter a String: ")
+    sorted_output = sorter(string)
+    print (sorted_output)
+main()
+    
+#Output: {'t': 8, 'e': 8, 'h': 6, 'g': 5, 'a': 5, 'o': 4, 'w': 3, 'r': 3, 'l': 3, 'd': 3, 'y': 2, 'u': 2, 'k': 2, 'n': 1, 'm': 1, 'c': 1, 'b': 1}
