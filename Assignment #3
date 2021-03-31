@@ -1,0 +1,25 @@
+class Staff:
+    def __init__ (self, name, phone, address, salary):
+        self.name = name
+        self.phone = phone
+        self.address = address
+        self.salary = salary
+
+class Chef(Staff):
+    def __init__ (self, name, phone, address, salary, cuisine_expertise):
+        super().__init__ (self, name, phone, address, salary)
+        self.cuisine_expertise = cuisine_expertise
+    def take_dish_name(self):
+        return input("What do you like to order: ")
+    
+    def prep_dish(self):
+        return f"Please Prepare {Chef.take_dish_name()}."
+
+class RestaurantManager(Staff):
+    def __init__ (self, name, phone, address, salary):
+        super().__init__ (self, name, phone, address, salary)
+    def staff_payroll(self, staff):
+        print('Monthly Payroll')
+        for i in staff:
+           print(f'Payroll for: {staff.name}')
+           print(f'- Total amount: {staff.staff_payroll()}')
