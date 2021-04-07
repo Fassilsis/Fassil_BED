@@ -1,0 +1,82 @@
+class Employee:
+    #counter = 0
+    def __init__ (self, name, age, gender, salary, position):
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.salary = salary
+        self.position = position
+        
+
+Employees = list()  
+ 
+f = open('C:/Users/Fassil/Downloads/Employees.txt')
+# read file
+data = f.read()
+
+# split each line :)
+data = data.split("\n")
+length = len(data)
+# parse each line
+for i in range(length):
+    # split each whitespace
+    tmp = data[i].split( )
+   
+    # Check if number or string, due to occupation
+    Employees.append(Employee(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4]))
+
+class Processer(Employee):
+    def __init__ (self, name, age, gender, salary, position):
+        super().__init__ (self, name, age, gender, salary, position)
+        
+    
+    
+total_sal = 0
+oldest_employee = list(('', 0))
+positions = {}
+genders = {}
+print ('Employee Info\n ==========================')
+for i in range(len(Employees)):
+            
+            total_sal = total_sal + float(Employees[i].salary)
+            # get oldest employee
+            if int(Employees[i].age) > int(oldest_employee[1]):
+                oldest_employee[1] = Employees[i].age
+                oldest_employee[0] = Employees[i].name
+
+            # counting MNG  occupations
+            if Employees[i].position in positions:
+                positions[Employees[i].position] = positions[Employees[i].position] + 1
+            else:
+                positions[Employees[i].position] = 1
+
+            # counting M and F
+            if Employees[i].gender in genders:
+                genders[Employees[i].gender] = genders[Employees[i].gender] + 1
+            else:
+                genders[Employees[i].gender] = 1
+
+
+print(" Average Salary: {}\n Oldest Employee: {}\n Number of Employees at MNG Position: {}\n Percentage of Female Employees: {}%\n Percentage of Male Employees: {}%\n Total Number of Employees: {}".format(
+            total_sal / len(Employees),
+            oldest_employee[0],
+            positions['MNG'],
+            genders['F']/len(Employees) * 100,
+            genders['M']/len(Employees) * 100,
+            len(Employees)
+            ))
+            
+ ##########################
+ Employee Info
+ ==========================
+ Average Salary: 2890.5306250000003
+ Oldest Employee: Louis
+ Number of Employees at MNG Position: 4
+ Percentage of Female Employees: 62.5%
+ Percentage of Male Employees: 37.5%
+ Total Number of Employees: 16
+ 
+ 
+ 
+ 
+ 
