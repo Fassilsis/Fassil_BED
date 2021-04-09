@@ -1,0 +1,14 @@
+
+class Ship:
+    def __init__ (self, name, hit_point, armor, damage):
+        self.name = str(name)
+        self.hit_point = int(hit_point)
+        self.armor = int(armor)
+        self.damage = int(damage)
+
+Battlecruiser = Ship('Battlecruiser', 130, 15, 30)
+Corsair = Ship('Corsair', 75, 25, 8)
+
+class Attack(Ship):
+    def __init__ (self, name, hit_point, armor, damage):
+        super().__init__ (self, name, hit_point, armor, damage)
