@@ -26,7 +26,7 @@ for i in range(length):
     Employees.append(Employee(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4]))
 
 
-def bringit9on():
+def salary():
        total_sal = 0
        oldest_employee = list(('', 0))
        positions = {}
@@ -62,7 +62,7 @@ def bringit9on():
             len(Employees)
             ))
 
-bringit9on()
+salary()
 
             
  ##########################
