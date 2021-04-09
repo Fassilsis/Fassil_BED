@@ -25,18 +25,14 @@ for i in range(length):
     # Check if number or string, due to occupation
     Employees.append(Employee(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4]))
 
-class Processer(Employee):
-    def __init__ (self, name, age, gender, salary, position):
-        super().__init__ (self, name, age, gender, salary, position)
-        
-    
-    
-total_sal = 0
-oldest_employee = list(('', 0))
-positions = {}
-genders = {}
-print ('Employee Info\n ==========================')
-for i in range(len(Employees)):
+
+def bringit9on():
+       total_sal = 0
+       oldest_employee = list(('', 0))
+       positions = {}
+       genders = {}
+       print ('Employee Info\n ==========================')
+       for i in range(len(Employees)):
             
             total_sal = total_sal + float(Employees[i].salary)
             # get oldest employee
@@ -57,7 +53,7 @@ for i in range(len(Employees)):
                 genders[Employees[i].gender] = 1
 
 
-print(" Average Salary: {}\n Oldest Employee: {}\n Number of Employees at MNG Position: {}\n Percentage of Female Employees: {}%\n Percentage of Male Employees: {}%\n Total Number of Employees: {}".format(
+       print(' Average Salary: {}\n Oldest Employee: {}\n Number of Employees at MNG Position: {}\n Percentage of Female Employees: {}%\n Percentage of Male Employees: {}%\n Total Number of Employees: {}'.format(
             total_sal / len(Employees),
             oldest_employee[0],
             positions['MNG'],
@@ -65,6 +61,9 @@ print(" Average Salary: {}\n Oldest Employee: {}\n Number of Employees at MNG Po
             genders['M']/len(Employees) * 100,
             len(Employees)
             ))
+
+bringit9on()
+
             
  ##########################
  Employee Info
